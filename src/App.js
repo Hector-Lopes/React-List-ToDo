@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Tasks from "./components/Tasks";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+
+const App = () =>{
+    // const message ="TESTE OFICIAL!"
+const [tasks, SetTasks]=useState([  // quando usamos state atualizamos o componente se fosse apenas um variavel não iriamos att o componente
+    {
+         id:"1",
+         tilte: "Estudar Programação",
+         completed: false,
+
+    },
+    {
+      id:"2",
+      tilte: "ler livros",
+      completed: true,
+
+    }
+
+
+]);
+return(
+
+
+
+<>
+<div className="container">
+
+    <Tasks tasks={tasks}/>
+</div>
+
+
+
+</>
+
+);
+};
+export  default App;
