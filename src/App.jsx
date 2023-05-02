@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+
 import './App.css';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-
+import { Alert } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
-      if (task.id == taskId) return { ...task, completed: !task.completed };
+      if (task.id === taskId) return { ...task, completed: !task.completed };
 
       return task;
     });
@@ -48,11 +49,21 @@ const App = () => {
     SetTasks(NewTasks);
   };
 
+  const handleTaskDelete = (taskId) => {
+    const NewTasks = tasks.filter((task) => task.id !== taskId);
+
+    SetTasks(NewTasks);
+  };
+
   return (
     <>
       <div className="container">
         <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks tasks={tasks} handleTaskClick={handleTaskClick} />
+        <Tasks
+          tasks={tasks}
+          handleTaskClick={handleTaskClick}
+          handleTaskDelete={handleTaskDelete}
+        />
       </div>
     </>
   );

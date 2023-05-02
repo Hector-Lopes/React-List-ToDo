@@ -1,14 +1,23 @@
 import React from 'react';
 import './Task.css';
 
-const Task = ({ task, handleTaskClick }) => {
+const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
   return (
     <div
       className="task-container"
-      onClick={() => handleTaskClick(task.id)}
       style={task.completed ? { borderLeft: '6px solid chartreuse' } : {}}
     >
-      <div className="task-title"> {task.title}</div>
+      <div className="task-title" onClick={() => handleTaskClick(task.id)}>
+        {task.title}
+      </div>
+      <div className="buttons-container">
+        <button
+          className="remove-tas-button"
+          onClick={() => handleTaskDelete(task.id)}
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 };
