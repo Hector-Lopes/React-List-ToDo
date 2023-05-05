@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import { Alert } from '@mui/material';
+
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
