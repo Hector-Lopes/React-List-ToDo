@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-
+import Header from './components/Header';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
@@ -11,21 +11,6 @@ const App = () => {
   const [tasks, SetTasks] = useState([
     // tasks são os valores guardado e SetTaks e estado atual
     // quando usamos state atualizamos o componente se fosse apenas um variavel não iriamos att o componente
-    {
-      id: '1',
-      title: 'Estudar Programação',
-      completed: false,
-    },
-    {
-      id: '2',
-      title: 'ler livros',
-      completed: true,
-    },
-    {
-      id: '3',
-      title: 'ler livros',
-      completed: true,
-    },
   ]);
 
   const handleTaskClick = (taskId) => {
@@ -58,6 +43,7 @@ const App = () => {
   return (
     <>
       <div className="container">
+        <Header></Header>
         <AddTask handleTaskAddition={handleTaskAddition} />
         <Tasks
           tasks={tasks}
