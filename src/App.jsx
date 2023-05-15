@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import Header from './components/Header';
@@ -41,17 +43,25 @@ const App = () => {
   };
 
   return (
-    <>
+    <Router>
       <div className="container">
-        <Header></Header>
-        <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks
-          tasks={tasks}
-          handleTaskClick={handleTaskClick}
-          handleTaskDelete={handleTaskDelete}
+        <Header />
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <>
+              <AddTask handleTaskAddition={handleTaskAddition} />
+              <Tasks
+                tasks={tasks}
+                handleTaskClick={handleTaskClick}
+                handleTaskDelete={handleTaskDelete}
+              />
+            </>
+          )}
         />
       </div>
-    </>
+    </Router>
   );
 };
 export default App;
