@@ -9,4 +9,12 @@
     font-weight: bold;
     cursor: pointer;
     border: none;
+
+}
+
+.add-button:hover {
+
+    transition: 1s;
+    box-shadow: inset 0 0 0 25px white;
+    background-color: aliceblue;
 }

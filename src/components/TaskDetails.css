@@ -1,0 +1,22 @@
+.Back-buttom-Details {
+    border: 20px;
+    color: chartreuse;
+    padding: 30px;
+
+}
+
+.task-details-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #444;
+    margin: 15PX 5px;
+    padding: 7PX 20PX;
+    color: #EEE;
+    border-radius: 5px;
+}
+
+p,
+h2 {
+    margin: 10px 5px;
+
+}

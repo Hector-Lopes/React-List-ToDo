@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import Header from './components/Header';
+import TaskDetail from './components/TaskDetails';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
             </>
           )}
         />
+        <Route path="/:tasktitle" exact component={TaskDetail} />
       </div>
     </Router>
   );
