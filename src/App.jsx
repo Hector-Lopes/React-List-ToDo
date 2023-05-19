@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -11,10 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
   // const message ="TESTE OFICIAL!"
-  const [tasks, SetTasks] = useState([
-    // tasks são os valores guardado e SetTaks e estado atual
-    // quando usamos state atualizamos o componente se fosse apenas um variavel não iriamos att o componente
-  ]);
+  const [tasks, SetTasks] = useState([]);
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
@@ -24,6 +21,15 @@ const App = () => {
     });
     SetTasks(newTasks);
   };
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const { data } = await axios.get(
+        'https://jsonplaceholder.cypress.io/todos?_limit=10'
+      );
+      SetTasks(data);
+    };
+    fetchTasks();
+  }, []);
 
   const handleTaskAddition = (tasktitle) => {
     const NewTasks = [
